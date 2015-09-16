@@ -17,6 +17,14 @@ var MainScene = cc.Scene.extend({
         layer.y = size.height / 2;
         this.addChild(layer);
 
+        var westButton = new cc.Sprite.create("img/west.png");
+        westButton.setPosition(size.width / 2, size.height / 3 *2);
+        this.addChild(westButton,2);
+
+        var eastButton = new cc.Sprite.create("img/east.png");
+        eastButton.setPosition(size.width / 2, size.height / 3 );
+        this.addChild(eastButton,2);
+
 //        var label = cc.LabelTTF.create("Hello World", "Arial", 40);
 //        label.setPosition(size.width / 2, size.height / 2);
 //        label.color = cc.color(0,0,255);

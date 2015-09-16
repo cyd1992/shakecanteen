@@ -25,6 +25,8 @@ window.onload = function(){
 //            }
 //        });
         cc.director.runScene(new MainScene());
+        var size = cc.director.getWinSize();
+        console.log(size.width +'  '+size.height);
         // }, this);
     };
     cc.game.run("gameCanvas");
