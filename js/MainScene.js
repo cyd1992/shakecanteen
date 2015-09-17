@@ -3,6 +3,15 @@
  */
 
 var MainScene = cc.Scene.extend({
+
+    westCallback:function(){
+        console.log("west");
+        cc.director.runScene(new WestScene());
+    },
+    eastCallback:function(){
+        console.log("east");
+    },
+
     ctor:function(){
         this._super();
         var size = cc.director.getWinSize();
@@ -17,13 +26,24 @@ var MainScene = cc.Scene.extend({
         layer.y = size.height / 2;
         this.addChild(layer);
 
-        var westButton = new cc.Sprite.create("img/west.png");
-        westButton.setPosition(size.width / 2, size.height / 3 *2);
-        this.addChild(westButton,2);
+        var westItem = new cc.MenuItemImage("img/west.png","img/west.png",this.westCallback,this);
+        var eastItem = new cc.MenuItemImage("img/east.png","img/east.png",this.eastCallback,this);
 
-        var eastButton = new cc.Sprite.create("img/east.png");
-        eastButton.setPosition(size.width / 2, size.height / 3 );
-        this.addChild(eastButton,2);
+        var menu = new cc.Menu(westItem,eastItem);
+
+        menu.x = 0;
+        menu.y = 0;
+
+        westItem.x = size.width / 2;
+        westItem.y = size.height /3 * 2;
+        eastItem.x = size.width / 2;
+        eastItem.y = size.height /3;
+
+        this.addChild(menu,1);
+
+
+
+
 
 //        var label = cc.LabelTTF.create("Hello World", "Arial", 40);
 //        label.setPosition(size.width / 2, size.height / 2);
