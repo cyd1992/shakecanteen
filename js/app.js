@@ -5,6 +5,16 @@
 // app.js
 
 window.onload = function(){
+
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+    if(width>height) width = height / 960 * 540 ;
+
+    $("canvas").attr({"width" : width+"px",
+            "height": height +"px"}
+    );
+
     cc.game.onStart = function(){
         //load resources
         // cc.LoaderScene.preload(["img/back.png"], function () {
